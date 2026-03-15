@@ -1,6 +1,6 @@
 # Android Kotlin Calculator
 
-A minimal working calculator app built in Kotlin using Android Studio.
+A working calculator app built in Kotlin using Android Studio.
 
 Features a clean, interactive interface following good Android usability, accessibility, and design principles.
 
