@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <!-- label result display to indicate output -->
+    <TextView
+        android:id="@+id/labelResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Result:"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <!-- main textView that shows current input/calculation result -->
+    <TextView
+        android:id="@+id/textViewResult"
+        android:layout_width="0dp"
+        android:layout_height="120dp"
+        android:text="0"
+        android:textSize="32sp"
+        android:gravity="end|center_vertical"
+        android:padding="16dp"
+        android:background="@android:color/darker_gray"
+        android:textColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/labelResult"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"/>
+
+    <!-- grid layout containing number and operator buttons -->
+    <GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:rowCount="4"
+        android:columnCount="4"
+        app:layout_constraintTop_toBottomOf="@id/textViewResult"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- row 1: numbers 1-3 and addition operator -->
+        <Button android:text="1" android:onClick="onNumberClick"
+            android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_columnWeight="1" android:layout_margin="4dp"
+            android:backgroundTint="#2196F3"/>
+
+        <Button android:text="2" android:onClick="onNumberClick"
+            android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_columnWeight="1" android:layout_margin="4dp"
+            android:backgroundTint="#2196F3"/>
+
+        <Button android:text="3" android:onClick="onNumberClick"
+            android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_columnWeight="1" android:layout_margin="4dp"
+            android:backgroundTint="#2196F3"/>
+
+        <Button android:text="+" android:onClick="onOperatorClick"
+            android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_columnWeight="1" android:layout_margin="4dp"
+            android:backgroundTint="#2196F3"/>
+
+        <!-- row 2: numbers 4-6 and subtraction operator -->
+        <Button android:text="4" android:onClick="onNumberClick"
+            android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_columnWeight="1" android:layout_margin="4dp"
+            android:backgroundTint="#2196F3"/>
+
+        <Button android:text="5" android:onClick="onNumberClick"
+            android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_columnWeight="1" android:layout_margin="4dp"
+            android:backgroundTint="#2196F3"/>
+
+        <Button android:text="6" android:onClick="onNumberClick"
+            android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_columnWeight="1" android:layout_margin="4dp"
+            android:backgroundTint="#2196F3"/>
+
+        <Button android:text="-" android:onClick="onOperatorClick"
+            android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_columnWeight="1" android:layout_margin="4dp"
+            android:backgroundTint="#2196F3"/>
+
+        <!-- row 3: numbers 7-9 and multiplication operator -->
+        <Button android:text="7" android:onClick="onNumberClick"
+            android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_columnWeight="1" android:layout_margin="4dp"
+            android:backgroundTint="#2196F3"/>
+
+        <Button android:text="8" android:onClick="onNumberClick"
+            android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_columnWeight="1" android:layout_margin="4dp"
+            android:backgroundTint="#2196F3"/>
+
+        <Button android:text="9" android:onClick="onNumberClick"
+            android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_columnWeight="1" android:layout_margin="4dp"
+            android:backgroundTint="#2196F3"/>
+
+        <Button android:text="×" android:onClick="onOperatorClick"
+            android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_columnWeight="1" android:layout_margin="4dp"
+            android:backgroundTint="#2196F3"/>
+
+        <!-- row 4: decimal, square root, square, division -->
+        <Button android:text="." android:onClick="onDecimalClick"
+            android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_columnWeight="1" android:layout_margin="4dp"
+            android:backgroundTint="#2196F3"/>
+
+        <Button android:text="√" android:onClick="onSqrtClick"
+            android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_columnWeight="1" android:layout_margin="4dp"
+            android:backgroundTint="#2196F3"/>
+
+        <Button android:text="x²" android:onClick="onSquareClick"
+            android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_columnWeight="1" android:layout_margin="4dp"
+            android:backgroundTint="#2196F3"/>
+
+        <Button android:text="÷" android:onClick="onOperatorClick"
+            android:layout_width="0dp" android:layout_height="wrap_content"
+            android:layout_columnWeight="1" android:layout_margin="4dp"
+            android:backgroundTint="#2196F3"/>
+    </GridLayout>
+
+    <!-- separate row for 0 button, spans full width -->
+    <Button
+        android:id="@+id/buttonZero"
+        android:text="0"
+        android:onClick="onNumberClick"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="4dp"
+        android:backgroundTint="#2196F3"
+        app:layout_constraintTop_toBottomOf="@id/gridLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- equals button, green, spans full width -->
+    <Button
+        android:id="@+id/buttonEqual"
+        android:text="="
+        android:onClick="onEqualClick"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:backgroundTint="#4CAF50"
+        app:layout_constraintTop_toBottomOf="@id/buttonZero"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- clear button, red, spans full width -->
+    <Button
+        android:id="@+id/buttonClear"
+        android:text="Clear"
+        android:onClick="onClearClick"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="#F44336"
+        app:layout_constraintTop_toBottomOf="@id/buttonEqual"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
